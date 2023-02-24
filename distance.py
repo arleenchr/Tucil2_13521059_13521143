@@ -9,7 +9,7 @@ def distance(Point,p1,p2,d):
 
 def pembentukan_titik(n,d):
     print("Masukkan titik :")
-    Point = [[int(input())for c in range (d)]for r in range (n)]
+    Point = [[random.randint(0,100)for c in range (d)]for r in range (n)]
     return Point
 
 def bruteforce(Point,n,d):
