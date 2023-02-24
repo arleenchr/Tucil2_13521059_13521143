@@ -2,6 +2,7 @@ import math
 import random
 import time
 # import numpy as np
+import visualizer
 
 def distance(Point,p1,p2,d):
     sum = 0
@@ -10,7 +11,6 @@ def distance(Point,p1,p2,d):
     return math.sqrt(sum)
 
 def pembentukan_titik(n,d):
-    print("Masukkan titik :")
     Point = [[random.randint(0,100)for c in range (d)]for r in range (n)]
     return Point
 
@@ -138,7 +138,8 @@ def main() :
     print(" dan " + str(Hasil[2]), end=' ')
     printPoint(Point[Hasil[2]],d)
     print(" dengan jarak " + str(Hasil[0]))
-    
     print("Waktu ekskusi:", (end-start) * 10**3, "ms")
+    
+    visualizer.visualization(Point,n,d)
     
 main()
