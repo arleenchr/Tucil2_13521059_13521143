@@ -124,6 +124,6 @@ def main() :
     print("Waktu ekskusi:", (end-start) * 10**3, "ms")
     
     # visualizer
-    visualizer.visualization(Point,n,d)
+    visualizer.visualization(Point,n,d,Point[Hasil[1]],Point[Hasil[2]],Hasil[0])
     
 main()
