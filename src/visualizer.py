@@ -12,7 +12,7 @@ def visualization(Point, n, d):
         
         for i in range (0,n):
             ax.scatter(Point[i][0], Point[i][1])
-            ax.text(Point[i][0], Point[i][1], '%s' % (str(i)), size=11)
+            ax.text(Point[i][0], Point[i][1], '%s' % (str(i)), size=8)
         plt.show()
         
     elif (d==3):
@@ -23,5 +23,5 @@ def visualization(Point, n, d):
         
         for i in range (0,n):
             ax.scatter(Point[i][0], Point[i][1], Point[i][2])
-            ax.text(Point[i][0], Point[i][1], Point[i][2], '%s' % (str(i)), size=11)
+            ax.text(Point[i][0], Point[i][1], Point[i][2], '%s' % (str(i)), size=8)
         plt.show()
