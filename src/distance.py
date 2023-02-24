@@ -1,7 +1,7 @@
 import math
-import random
 import time
 # import numpy as np
+import IO_processing
 import visualizer
 
 def distance(Point,p1,p2,d):
@@ -9,10 +9,6 @@ def distance(Point,p1,p2,d):
     for i in range (0,d) :
         sum += (Point[p1][i]-Point[p2][i])**2
     return math.sqrt(sum)
-
-def pembentukan_titik(n,d):
-    Point = [[random.randint(0,100)for c in range (d)]for r in range (n)]
-    return Point
 
 def bruteforce(Point,n,d):
     hasil = []
@@ -99,47 +95,35 @@ def divide_conquer(Point,n,d):
     hasil.append(idx2)
     return hasil
 
-def printPoint(P,d):
-    print("(", end='')
-    for j in range (0,d):
-        print(P[j], end = '')
-        if (j != d-1):
-            print(",",end='')
-    print(")", end='')
-
 def main() :
-    n = int(input("Masukkan banyak titik : "))
-    d = int(input("Masukkan dimensi : "))
-    print('\n')
-    Point = pembentukan_titik(n,d)
+    IOresult = IO_processing.inputPoint()
+    Point = IOresult[0]
+    n = IOresult[1]
+    d = IOresult[2]
     
-    print("Generating points...\n")
-    
-    for i in range (0,n):
-        print("Point", (i+1), end='')
-        printPoint(Point[i],d)
-        print('')
-    
+    # solve by brute force
     start = time.time()
     Hasil = bruteforce(Point,n,d)
     end = time.time()
     print("Jarak terdekat adalah titik " + str(Hasil[1]), end=' ')
-    printPoint(Point[Hasil[1]],d)
+    IO_processing.printPoint(Point[Hasil[1]],d)
     print(" dan " + str(Hasil[2]), end=' ')
-    printPoint(Point[Hasil[2]],d)
+    IO_processing.printPoint(Point[Hasil[2]],d)
     print(" dengan jarak " + str(Hasil[0]))
     print("Waktu ekskusi:", (end-start) * 10**3, "ms")
     
+    # solve by divide and conquer
     start = time.time()
     Hasil2 = divide_conquer(Point,n,d)
     end = time.time()
     print("Jarak terdekat adalah titik " + str(Hasil[1]), end=' ')
-    printPoint(Point[Hasil[1]],d)
+    IO_processing.printPoint(Point[Hasil[1]],d)
     print(" dan " + str(Hasil[2]), end=' ')
-    printPoint(Point[Hasil[2]],d)
+    IO_processing.printPoint(Point[Hasil[2]],d)
     print(" dengan jarak " + str(Hasil[0]))
     print("Waktu ekskusi:", (end-start) * 10**3, "ms")
     
+    # visualizer
     visualizer.visualization(Point,n,d)
     
 main()

@@ -1,0 +1,43 @@
+import random
+
+def pembentukan_titik(n,d):
+    # randomizer titik
+    Point = [[random.randint(0,100)for c in range (d)]for r in range (n)]
+    return Point
+
+def printPoint(P,d):
+    # print point (x,y,z,...)
+    print("(", end='')
+    for j in range (0,d):
+        print(P[j], end = '')
+        if (j != d-1):
+            print(",",end='')
+    print(")", end='')
+
+def inputPoint():
+    n = int(input("Masukkan banyak titik : "))
+    d = int(input("Masukkan dimensi : "))
+    print('')
+    Point = pembentukan_titik(n,d)
+    # print points
+    print("Generating points...")
+    for i in range (0,n):
+        print("Point", (i+1), end='')
+        printPoint(Point[i],d)
+        print('')
+    print('')
+    
+    # validasi input
+    if (n<=1):
+        print("Jarak terdekat tidak bisa dikalkulasi! Silakan masukkan kembali input!\n")
+        return inputPoint()
+    elif (d<=0):
+        print("Dimensi tidak valid! Silakan masukkan kembali input!\n")
+        return inputPoint()
+    else:
+        print("masuk sini")
+        hasil = []
+        hasil.append(Point)
+        hasil.append(n)
+        hasil.append(d)
+        return hasil
