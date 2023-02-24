@@ -1,5 +1,6 @@
 import math
 import random
+import time
 # import numpy as np
 
 def distance(Point,p1,p2,d):
@@ -98,14 +99,46 @@ def divide_conquer(Point,n,d):
     hasil.append(idx2)
     return hasil
 
+def printPoint(P,d):
+    print("(", end='')
+    for j in range (0,d):
+        print(P[j], end = '')
+        if (j != d-1):
+            print(",",end='')
+    print(")", end='')
+
 def main() :
     n = int(input("Masukkan banyak titik : "))
     d = int(input("Masukkan dimensi : "))
     print('\n')
     Point = pembentukan_titik(n,d)
+    
+    print("Generating points...\n")
+    
+    for i in range (0,n):
+        print("Point", (i+1), end='')
+        printPoint(Point[i],d)
+        print('')
+    
+    start = time.time()
     Hasil = bruteforce(Point,n,d)
-    print("Jarak terdekat adalah titik " + str(Hasil[1]) +" dan " + str(Hasil[2]) + " dengan jarak " + str(Hasil[0]))
+    end = time.time()
+    print("Jarak terdekat adalah titik " + str(Hasil[1]), end=' ')
+    printPoint(Point[Hasil[1]],d)
+    print(" dan " + str(Hasil[2]), end=' ')
+    printPoint(Point[Hasil[2]],d)
+    print(" dengan jarak " + str(Hasil[0]))
+    print("Waktu ekskusi:", (end-start) * 10**3, "ms")
+    
+    start = time.time()
     Hasil2 = divide_conquer(Point,n,d)
-    print("Jarak terdekat adalah titik " + str(Hasil2[1]) +" dan " + str(Hasil2[2]) + " dengan jarak " + str(Hasil2[0]))
+    end = time.time()
+    print("Jarak terdekat adalah titik " + str(Hasil[1]), end=' ')
+    printPoint(Point[Hasil[1]],d)
+    print(" dan " + str(Hasil[2]), end=' ')
+    printPoint(Point[Hasil[2]],d)
+    print(" dengan jarak " + str(Hasil[0]))
+    
+    print("Waktu ekskusi:", (end-start) * 10**3, "ms")
     
 main()
