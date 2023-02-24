@@ -1,4 +1,5 @@
 import math
+import random
 # import numpy as np
 
 def distance(Point,p1,p2,d):
