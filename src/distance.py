@@ -147,9 +147,9 @@ def divide_conquer(Point,d,count):#Point = list of point, d = dimensi, count = b
 def main() :
     IOresult = IO_processing.inputPoint()
     Point = IOresult[0]
+    Pointdiv = Point.copy()
     n = IOresult[1]
     d = IOresult[2]
-    Point2 = quicksort(Point,0,len(Point)-1,0)
     
     # solve by brute force
     start = time.time()
@@ -165,6 +165,7 @@ def main() :
     
     # solve by divide and conquer
     start = time.time()
+    Point2 = quicksort(Pointdiv,0,len(Point)-1,0)
     Hasil = divide_conquer(Point2,d,0)
     end = time.time()
     print("Jarak terdekat adalah titik ", end=' ')
@@ -176,6 +177,6 @@ def main() :
     print ("Banyak operasi " + str(Hasil[3]))
     
     # visualizer
-    visualizer.visualization(Point,n,d,Point[Hasil[1]],Point[Hasil[2]],Hasil[0])
+    visualizer.visualization(Point,n,d,Hasil[1],Hasil[2],Hasil[0])
     
 main()
