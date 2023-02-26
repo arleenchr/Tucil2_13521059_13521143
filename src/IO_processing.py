@@ -15,27 +15,28 @@ def printPoint(P,d):
     print(")", end='')
 
 def inputPoint():
-    n = int(input("Masukkan banyak titik : "))
-    d = int(input("Masukkan dimensi : "))
-    print('')
-    Point = pembentukan_titik(n,d)
-    # print points
-    print("Generating points...")
-    for i in range (0,n):
-        print("Point", (i+1), end='')
-        printPoint(Point[i],d)
-        print('')
+    # input banyak titik, dimensi, dan generate points
+    n = int(input("Masukkan banyak titik: "))
+    d = int(input("Masukkan dimensi: "))
     print('')
     
     # validasi input
     if (n<=1):
-        print("Jarak terdekat tidak bisa dikalkulasi! Silakan masukkan kembali input!\n")
+        print("Jarak terdekat tidak bisa dikalkulasi! Silakan masukkan kembali input paling sedikit 2 titik!\n")
         return inputPoint()
     elif (d<=0):
         print("Dimensi tidak valid! Silakan masukkan kembali input!\n")
         return inputPoint()
     else:
-        print("masuk sini")
+        Point = pembentukan_titik(n,d)
+        # print points
+        print("Generating points...")
+        for i in range (0,n):
+            print("Point", (i+1), end='')
+            printPoint(Point[i],d)
+            print('')
+        print('')
+        
         hasil = []
         hasil.append(Point)
         hasil.append(n)

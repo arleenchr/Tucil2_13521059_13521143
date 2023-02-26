@@ -1,11 +1,11 @@
 import math
 import time
-# import numpy as np
 import IO_processing
 import visualizer
 
-def distance(Point,p1,p2,d): #Point = list of Point, p1 = titik 1, p2 = titik2, d = dimensi
-    #Kembaliin jarak, koordinat titik1, koordinat titik2
+def distance(Point,p1,p2,d):
+    # Point = list of Points, p1 = titik 1, p2 = titik2, d = dimensi
+    # Mengembalikan jarak, koordinat titik1, koordinat titik2
     sum = 0
     idx1 = []
     idx2 = []
@@ -19,8 +19,9 @@ def distance(Point,p1,p2,d): #Point = list of Point, p1 = titik 1, p2 = titik2, 
     hasil.append(idx2)
     return hasil
 
-def bruteforce(Point,n,d):#Point = list of point, n = total titik, d = dimensi
-    #kembaliin jarak terdekat, titik1 terdekat, titik2 terdekat, banyak operasi distance
+def bruteforce(Point,n,d):
+    # Point = list of points, n = total titik, d = dimensi
+    # Mengembalikan jarak terdekat, pasangan titik1 dan titik2 terdekat, banyak operasi distance
     hasil = []
     count = 0
     minlist = distance(Point,0,1,d)
@@ -44,8 +45,9 @@ def bruteforce(Point,n,d):#Point = list of point, n = total titik, d = dimensi
     hasil.append(count)
     return hasil
 
-def quicksort(Point,low,high,d_now) : #Point = list of point, low = index awal, high = index akhir, d_now = dimensi sekarang
-    #Kembaliin list of point terurut dari kecil berdasarkan d_now
+def quicksort(Point,low,high,d_now) :
+    # Point = list of points, low = index awal, high = index akhir, d_now = dimensi sekarang
+    # Mengembalikan list of points yang terurut membesar berdasarkan d_now
     # pi = pivot
     if low<high :
         pivot = Point[high][d_now]
@@ -61,8 +63,9 @@ def quicksort(Point,low,high,d_now) : #Point = list of point, low = index awal, 
         quicksort(Point,pi+1,high,d_now)
     return Point
 
-def closest(Point,min,d,idx1,idx2):#Point = list of Point, min = jarak minimal,d = dimensi, idx1 = titik1 min, idx2 = titik2 min
-    #Kembaliin jarak terdekat, titik1 jarak terdekat, titik2 jarak terdekat, jumlah pemanggilan distance
+def closest(Point,min,d,idx1,idx2):
+    # Point = list of Points, min = jarak minimal, d = dimensi, idx1 = titik1 min, idx2 = titik2 min
+    # Mengembalikan jarak terdekat, pasangan titik1 dan titik2 jarak terdekat, jumlah pemanggilan distance
     hasil = []
     count = 0
     for j in range (0,len(Point)):
@@ -78,7 +81,6 @@ def closest(Point,min,d,idx1,idx2):#Point = list of Point, min = jarak minimal,d
                     min = temp[0]
                     idx1 = temp[1]
                     idx2 = temp[2]
-                    
 
     hasil.append(min)
     hasil.append(idx1)
@@ -86,12 +88,13 @@ def closest(Point,min,d,idx1,idx2):#Point = list of Point, min = jarak minimal,d
     hasil.append(count)
     return hasil
 
-def divide_conquer(Point,d,count):#Point = list of point, d = dimensi, count = banyak dipanggilnya distance
-    #Kembaliin jarak terdekat, titik1 jarak terdekat, titik2 jarak terdekat, jumlah pemanggilan distance
+def divide_conquer(Point,d,count):
+    # Point = list of points, d = dimensi, count = banyak dipanggilnya distance
+    # Mengembalikan jarak terdekat, pasangan titik1 dan titik2 jarak terdekat, jumlah pemanggilan distance
     # prekondisi: Point terurut membesar
     hasil = []
     countbrute = 0
-    if (len(Point)>=2 and len(Point)<=3):
+    if (len(Point)>=2 and len(Point)<=3): # basis
         if (len(Point)==2):
             countbrute=1
         else :
@@ -101,27 +104,25 @@ def divide_conquer(Point,d,count):#Point = list of point, d = dimensi, count = b
     mid = len(Point)//2
     # menghitung jarak titik-titik dekat perbatasan
     midpoint = (Point[mid-1][0]+Point[mid][0])/2 # titik tengah antara left & right
-    
     PointLeft = Point[:mid]
     PointRight = Point[mid:]
     
-    # find minimum distance in left & right area (rekurens) 
+    # cari jarak minimum di area left dan right (rekurens) 
     left = divide_conquer(PointLeft,d,count)
     right = divide_conquer(PointRight,d,count)
     if (left[0]<=right[0]):
         min = left[0]
         idx1 = left[1]
         idx2= left[2]
-    else :
+    else:
         min = right[0]
         idx1 = right[1]
         idx2= right[2]
      
     countleft = left[3]
     countright = right[3]
-    #min = distance(Point,left[0],right[0],d) # cari jarak minimum
     
-    # find minimum distance near midpoint
+    # cari jarak terdekat di sekitar midpoint
     Pointcenter = []
     for i in range (0,len(PointLeft)):
         if abs(PointLeft[i][0] - midpoint)<=min :
@@ -145,6 +146,8 @@ def divide_conquer(Point,d,count):#Point = list of point, d = dimensi, count = b
     return hasil
 
 def main() :
+    # Program Utama
+    # Proses input
     IOresult = IO_processing.inputPoint()
     Point = IOresult[0]
     Pointdiv = Point.copy()

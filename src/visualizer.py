@@ -3,9 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def visualization(Point, n, d, Hasil1, Hasil2, min_distance):
+    # Visualisasi untuk 2D dan 3D
     fig = plt.figure()
         
     if (d==2):
+        # Visualisasi 2D
         ax = plt.axes()
         ax.set_xlabel('X-axis')
         ax.set_ylabel('Y-axis')
@@ -14,7 +16,7 @@ def visualization(Point, n, d, Hasil1, Hasil2, min_distance):
             ax.scatter(Point[i][0], Point[i][1])
             ax.text(Point[i][0], Point[i][1], '%s' % (str(i)), size=8)
         
-        # plot line between two closest points and print the distance between them
+        # plot garis antara sepasang titik terdekat dan cetak jaraknya
         Hasil_x = []
         Hasil_x.append(Hasil1[0])
         Hasil_x.append(Hasil2[0])
@@ -27,6 +29,7 @@ def visualization(Point, n, d, Hasil1, Hasil2, min_distance):
         plt.show()
         
     elif (d==3):
+        # Visualisasi 3D
         ax = plt.axes(projection='3d')
         ax.set_xlabel('X-axis')
         ax.set_ylabel('Y-axis')
@@ -36,7 +39,7 @@ def visualization(Point, n, d, Hasil1, Hasil2, min_distance):
             ax.scatter(Point[i][0], Point[i][1], Point[i][2])
             ax.text(Point[i][0], Point[i][1], Point[i][2], '%s' % (str(i)), size=8)
         
-        # plot line between two closest points and print the distance between them
+        # plot garis antara sepasang titik terdekat dan cetak jaraknya
         Hasil_x = []
         Hasil_x.append(Hasil1[0])
         Hasil_x.append(Hasil2[0])
