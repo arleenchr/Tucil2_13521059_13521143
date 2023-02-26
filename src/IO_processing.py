@@ -33,7 +33,7 @@ def inputPoint():
         # print points
         print("Generating points...")
         for i in range (0,n):
-            print("Point ", (i+1), end='')
+            print("Point", (i+1), end=' ')
             printPoint(Point[i],d)
             print('')
         print('')
