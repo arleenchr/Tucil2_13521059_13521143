@@ -1,7 +1,4 @@
 import math
-import time
-import IO_processing
-import visualizer
 
 def distance(Point,p1,p2,d):
     # Point = list of Points, p1 = titik 1, p2 = titik2, d = dimensi
@@ -73,14 +70,23 @@ def closest(Point,min,d,idx1,idx2):
             flag = True
             for i in range (0,d):
                 if abs(Point[j][i] - Point[k][i])>min :
-                    flag = False
+                    flag = False        
             if (flag) :
-                count +=1
-                temp = distance(Point,j,k,d)
-                if (temp[0]<min) :
-                    min = temp[0]
-                    idx1 = temp[1]
-                    idx2 = temp[2]
+                summ = 0
+                flag2 = True
+                for i in range (0,d) :
+                    if (summ<min**2):
+                        summ += (Point[j][i]-Point[k][i])**2
+                    else :
+                        flag2 = False
+                        break
+                if (flag2): 
+                    count +=1
+                    temp = distance(Point,j,k,d)
+                    if (temp[0]<min) :
+                        min = temp[0]
+                        idx1 = temp[1]
+                        idx2 = temp[2]
 
     hasil.append(min)
     hasil.append(idx1)
@@ -144,44 +150,3 @@ def divide_conquer(Point,d,count):
     hasil.append(idx2)
     hasil.append(count)
     return hasil
-
-def main() :
-    # Program Utama
-    # Proses input
-    IOresult = IO_processing.inputPoint()
-    Point = IOresult[0]
-    Pointdiv = Point.copy()
-    n = IOresult[1]
-    d = IOresult[2]
-    
-    # solve by brute force
-    start = time.time()
-    Hasil = bruteforce(Point,n,d)
-    end = time.time()
-    print("Dengan strategi algoritma Brute Force,\npasangan titik terdekat adalah titik ", end='')
-    IO_processing.printPoint(Hasil[1],d)
-    print(" dan titik ", end='')
-    IO_processing.printPoint(Hasil[2],d)
-    print(" dengan jarak %.4f" % (Hasil[0]))
-    print("Waktu eksekusi:", (end-start)*1000, " ms")
-    print("Banyak operasi: " + str(Hasil[3]))
-    
-    print("")
-    
-    # solve by divide and conquer
-    start = time.time()
-    Point2 = quicksort(Pointdiv,0,len(Point)-1,0)
-    Hasil = divide_conquer(Point2,d,0)
-    end = time.time()
-    print("Dengan strategi algoritma Divide and Conquer,\npasangan titik terdekat adalah titik ", end='')
-    IO_processing.printPoint(Hasil[1],d)
-    print(" dan titik ", end='')
-    IO_processing.printPoint(Hasil[2],d)
-    print(" dengan jarak %.4f" % (Hasil[0]))
-    print("Waktu eksekusi:", (end-start)*1000, " ms")
-    print("Banyak operasi: " + str(Hasil[3]))
-    
-    # visualizer
-    visualizer.visualization(Point,n,d,Hasil[1],Hasil[2],Hasil[0])
-    
-main()
