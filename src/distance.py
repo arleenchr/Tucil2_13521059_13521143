@@ -60,6 +60,19 @@ def quicksort(Point,low,high,d_now) :
         quicksort(Point,pi+1,high,d_now)
     return Point
 
+def checker (Point,min,d,p1,p2) :
+    #Point = list of Points, min = jarak minimal, d = dimensi, p1 = titik1, p2 = titik2
+    #Mengembalikan boolean apakah harus dicek jaraknya/tidak
+    summ = 0
+    flag = True
+    for i in range (0,d) :
+        if (summ<min**2):
+            summ += (Point[p1][i]-Point[p2][i])**2
+        else :
+            flag = False
+            break
+    return flag
+
 def closest(Point,min,d,idx1,idx2):
     # Point = list of Points, min = jarak minimal, d = dimensi, idx1 = titik1 min, idx2 = titik2 min
     # Mengembalikan jarak terdekat, pasangan titik1 dan titik2 jarak terdekat, jumlah pemanggilan distance
@@ -72,14 +85,7 @@ def closest(Point,min,d,idx1,idx2):
                 if abs(Point[j][i] - Point[k][i])>min :
                     flag = False        
             if (flag) :
-                summ = 0
-                flag2 = True
-                for i in range (0,d) :
-                    if (summ<min**2):
-                        summ += (Point[j][i]-Point[k][i])**2
-                    else :
-                        flag2 = False
-                        break
+                flag2 = checker(Point, min, d, j, k)
                 if (flag2): 
                     count +=1
                     temp = distance(Point,j,k,d)
