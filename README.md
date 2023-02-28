@@ -15,17 +15,16 @@ Program ini berfungsi untuk mencari pasangan titik terdekat pada bidang tiga dim
 ## Struktur Program
 
 ```
-│
+├─── bin
+│   └─── run.bat
 ├─── doc
 │   └─── Tucil2_13521059_13521143.pdf
-│
 ├─── src
 │   ├─── distance.py
 │   ├─── IO_processing.py
 │   ├─── main.py
 │   ├─── run.bat
 │   └─── visualizer.py
-│
 └─── README.md                                    
 ```
 
@@ -34,19 +33,19 @@ Program ini berfungsi untuk mencari pasangan titik terdekat pada bidang tiga dim
 
 ## Menggunakan Program
 
-Untuk menjalankan program, buka root directory, lalu jalankan run.bat:
+Untuk menjalankan program, buka terminal pada folder bin, lalu jalankan run.bat dengan perintah
 ```
 ./run.bat
 ```
-
-Untuk penggunaan program di dalam akan terdapat instruksi yang jelas di program sehingga user tinggal mengikutinya saja.
+Untuk cara penggunaan program, user hanya perlu mengikuti instruksi yang tertera secara jelas pada program.
 
 
 ## Tampilan User
 
 - Preview Program
-![image](https://user-images.githubusercontent.com/89202471/221882938-77928808-7928-41b6-a5e4-bc387bd41653.png)
-![Figure_16](https://user-images.githubusercontent.com/89202471/221883317-7dfc879a-c9c0-4993-b490-dbf56d8764de.png)
+![image](https://user-images.githubusercontent.com/89202471/221889025-352ecc9c-abf5-4af6-b361-fa23cd365c9a.png)
+![readme](https://user-images.githubusercontent.com/89202471/221889144-35e128fb-a5e7-46b9-b16e-439ecb6faa4e.png)
+
 
 
 ## Author
