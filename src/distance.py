@@ -85,7 +85,9 @@ def closest(Point,min,d,idx1,idx2):
                 if abs(Point[j][i] - Point[k][i])>min :
                     flag = False        
             if (flag) :
-                flag2 = checker(Point, min, d, j, k)
+                flag2 = True
+                if (d>3):
+                    flag2 = checker(Point, min, d, j, k)
                 if (flag2): 
                     count +=1
                     temp = distance(Point,j,k,d)
