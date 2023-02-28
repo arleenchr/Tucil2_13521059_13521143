@@ -1,6 +1,6 @@
 # Tucil2_13521059_13521143
 
-# Tugas kecil 2 Strategi Algoritma | Mencari Pasangan Titik Terdekat 3D dengan Algoritma Divide and Conquer
+# Tugas Kecil 2 IF2211 Strategi Algoritma: Mencari Pasangan Titik Terdekat 3D dengan Algoritma Divide and Conquer
 
 ## Deskripsi Persoalan
 
@@ -9,7 +9,7 @@ Mencari pasangan titik terdekat di antara sekumpulan titik dapat dilakukan denga
 
 ## Deskripsi Program
 
-Program ini berfungsi untuk mencari pasangan titik terdekat pada bidang tiga dimensi maupun n dimensi dengan dua metode berbeda, yaitu Divide and Conquer  dan Brute Force. Program juga akan memvisualisasikan titik dan solusi untuk dimensi 2 dan 3. Untuk input, user dapat menginput jumlah titik berupa n dan dimensi yang diinginkan berupa d, lalu himpunan titik akan dibuat secara otomatis dan acak.
+Program ini berfungsi untuk mencari pasangan titik terdekat pada bidang tiga dimensi maupun n dimensi dengan dua metode berbeda, yaitu Divide and Conquer dan Brute Force. Program juga akan memvisualisasikan titik dan solusi untuk dua dimensi dan tiga dimensi. Untuk input, user dapat menginput jumlah titik berupa n dan dimensi yang diinginkan berupa d, lalu himpunan titik akan dibuat secara otomatis dan acak. Program akan menampilkan pasangan titik terdekat beserta dengan jaraknya
 
 
 ## Struktur Program
@@ -17,20 +17,20 @@ Program ini berfungsi untuk mencari pasangan titik terdekat pada bidang tiga dim
 ```
 │
 ├─── doc
-│       │ Tucil2_13521059_13521143.pdf
+│   └─── Tucil2_13521059_13521143.pdf
 │
 ├─── src
-│       │ distance.py
-│       │ IO_processing.py
-|       │ main.py
-|       │ visualizer.py
+│   ├─── distance.py
+│   ├─── IO_processing.py
+│   ├─── main.py
+│   ├─── run.bat
+│   └─── visualizer.py
 │
-├─── README.md
-|   
-├─── run.bat
-                                        
+└─── README.md                                    
 ```
 
+## Requirements
+- [Python 3.7](https://www.python.org/)
 
 ## Menggunakan Program
 
@@ -45,13 +45,12 @@ Untuk penggunaan program di dalam akan terdapat instruksi yang jelas di program 
 ## Tampilan User
 
 - Preview Program
-<p align = "center">
-    <img src="https://i.postimg.cc/ZBYH9kyh/foto1.jpg">
-    <img src= "https://i.postimg.cc/bG9LNYrT/foto2.png">
-</p>
+![image](https://user-images.githubusercontent.com/89202471/221882938-77928808-7928-41b6-a5e4-bc387bd41653.png)
+![Figure_16](https://user-images.githubusercontent.com/89202471/221883317-7dfc879a-c9c0-4993-b490-dbf56d8764de.png)
 
 
 ## Author
-
-13521059|Arleen Chrysantha Gunardi
-13521143|Raynard Tanadi
+| NIM       | Nama                      |
+| --------- | --------------------------|
+| 13521059  | Arleen Chrysantha Gunardi |
+| 13521143  | Raynard Tanadi            |
