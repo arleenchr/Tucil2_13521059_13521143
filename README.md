@@ -44,10 +44,11 @@ Untuk penggunaan program di dalam akan terdapat instruksi yang jelas di program 
 
 ## Tampilan User
 
-<!-- - Preview 24 Game Solver
+- Preview Program
 <p align = "center">
-    <img src="https://i.postimg.cc/pTH9cRzg/24game.jpg">
-</p> -->
+    <img src="https://i.postimg.cc/ZBYH9kyh/foto1.jpg">
+    <img src= "https://i.postimg.cc/bG9LNYrT/foto2.png">
+</p>
 
 
 ## Author
