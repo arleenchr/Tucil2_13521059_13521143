@@ -23,7 +23,6 @@ Program ini berfungsi untuk mencari pasangan titik terdekat pada bidang tiga dim
 │   ├─── distance.py
 │   ├─── IO_processing.py
 │   ├─── main.py
-│   ├─── run.bat
 │   └─── visualizer.py
 └─── README.md                                    
 ```
